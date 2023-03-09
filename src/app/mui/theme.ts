@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import { purple } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 
 export const theme = createTheme({
   typography: {
@@ -7,7 +7,8 @@ export const theme = createTheme({
   },
   palette: {
     primary: {
-      main: purple[900],
+      main: grey[900],
     },
   },
+  components: {},
 });
