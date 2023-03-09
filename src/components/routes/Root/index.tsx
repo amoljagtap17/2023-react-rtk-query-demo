@@ -1,19 +1,14 @@
 import { Box, Container } from "@mui/material";
-import { ReactNode } from "react";
-import { Footer } from "../Footer";
-import { Navbar } from "../Navbar";
+import { Footer, Navbar } from "components/sections";
+import { Outlet } from "react-router-dom";
 
-interface iLayoutProps {
-  children: ReactNode;
-}
-
-export function Layout({ children }: iLayoutProps) {
+export default function Layout() {
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
       <Navbar />
 
       <Container maxWidth="lg" sx={{ flexGrow: 1 }}>
-        {children}
+        <Outlet />
       </Container>
 
       <Footer />

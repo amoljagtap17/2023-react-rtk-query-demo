@@ -15,11 +15,16 @@ import {
   Typography,
 } from "@mui/material";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About"];
+const navItems = [
+  { label: "Home", path: "/" },
+  { label: "About", path: "/about" },
+];
 
 export function Navbar() {
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -28,7 +33,11 @@ export function Navbar() {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
+      <Typography
+        variant="h6"
+        sx={{ my: 2, cursor: "pointer" }}
+        onClick={() => navigate("/")}
+      >
         RTK Query Demo
       </Typography>
 
@@ -36,9 +45,13 @@ export function Navbar() {
 
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
+          <ListItem
+            key={item.label}
+            disablePadding
+            onClick={() => navigate(item.path)}
+          >
             <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+              <ListItemText primary={item.label} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -63,14 +76,23 @@ export function Navbar() {
             <Typography
               variant="h6"
               component="div"
-              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", sm: "block" },
+                cursor: "pointer",
+              }}
+              onClick={() => navigate("/")}
             >
               RTK Query Demo
             </Typography>
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map((item) => (
-                <Button key={item} sx={{ color: "#fff" }}>
-                  {item}
+                <Button
+                  key={item.label}
+                  sx={{ color: "#fff" }}
+                  onClick={() => navigate(item.path)}
+                >
+                  {item.label}
                 </Button>
               ))}
             </Box>
