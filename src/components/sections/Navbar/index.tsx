@@ -1,19 +1,20 @@
+import { Menu as MenuIcon } from "@mui/icons-material";
 import {
+  AppBar,
   Box,
-  Typography,
+  Button,
+  Container,
   Divider,
+  Drawer,
+  IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemText,
-  AppBar,
-  Button,
-  IconButton,
   Toolbar,
-  Drawer,
+  Typography,
 } from "@mui/material";
 import { useState } from "react";
-import { Menu as MenuIcon } from "@mui/icons-material";
 
 const drawerWidth = 240;
 const navItems = ["Home", "About"];
@@ -48,31 +49,33 @@ export function Navbar() {
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar component="nav" position="fixed" elevation={0}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          >
-            RTK Query Demo
-          </Typography>
-          <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "#fff" }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
-        </Toolbar>
+        <Container maxWidth="lg">
+          <Toolbar disableGutters>
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+            >
+              RTK Query Demo
+            </Typography>
+            <Box sx={{ display: { xs: "none", sm: "block" } }}>
+              {navItems.map((item) => (
+                <Button key={item} sx={{ color: "#fff" }}>
+                  {item}
+                </Button>
+              ))}
+            </Box>
+          </Toolbar>
+        </Container>
       </AppBar>
 
       <Box component="nav">
