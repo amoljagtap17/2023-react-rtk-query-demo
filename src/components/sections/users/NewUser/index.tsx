@@ -3,7 +3,7 @@ import { useAddUserMutation } from "app/store";
 import { getRandomUser } from "app/utils";
 
 export function NewUser() {
-  const [addUser, { isLoading, isError }] = useAddUserMutation();
+  const [addUser, { isLoading }] = useAddUserMutation();
 
   const onNewUserButtonClick = async () => {
     const newUser = getRandomUser();

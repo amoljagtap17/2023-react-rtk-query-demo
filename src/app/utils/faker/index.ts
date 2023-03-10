@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { iUser } from "app/types";
+import { iPost, iUser } from "app/types";
 
 export function getRandomUser(): iUser {
   const sex = faker.name.sexType();
@@ -15,5 +15,17 @@ export function getRandomUser(): iUser {
     email,
     firstName,
     lastName,
+    createdAt: new Date(),
+  };
+}
+
+export function getRandomPost(userId: string): iPost {
+  return {
+    id: faker.datatype.uuid(),
+    title: faker.lorem.lines(1),
+    slug: faker.lorem.slug(),
+    userId,
+    body: faker.lorem.paragraphs(4),
+    createdAt: new Date(),
   };
 }

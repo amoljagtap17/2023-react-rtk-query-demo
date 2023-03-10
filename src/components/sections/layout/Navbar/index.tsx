@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 const drawerWidth = 240;
 const navItems = [
   { label: "Home", path: "/" },
-  { label: "About", path: "/about" },
+  { label: "Posts", path: "/posts" },
 ];
 
 export function Navbar() {

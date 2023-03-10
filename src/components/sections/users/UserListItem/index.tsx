@@ -8,13 +8,15 @@ import {
   Typography,
 } from "@mui/material";
 import { iUser } from "app/types";
+import { useNavigate } from "react-router-dom";
 
 interface iUserListItemProps {
   user: iUser;
 }
 
 export function UserListItem({ user }: iUserListItemProps) {
-  const { firstName, lastName, email, avatar } = user;
+  const { firstName, lastName, email, avatar, id } = user;
+  const navigate = useNavigate();
 
   return (
     <Card
@@ -35,7 +37,9 @@ export function UserListItem({ user }: iUserListItemProps) {
         </CardContent>
 
         <CardActions>
-          <Button size="small">See all posts</Button>
+          <Button size="small" onClick={() => navigate(`posts?userId=${id}`)}>
+            See all posts
+          </Button>
         </CardActions>
       </Box>
 
