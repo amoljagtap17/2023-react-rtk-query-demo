@@ -15,6 +15,10 @@ export const postsApi = createApi({
       query: () => ({ url: "/posts", method: "GET" }),
       providesTags: [{ type: "Post", id: "LIST" }],
     }),
+    getPostsByUserId: builder.query<iPost[], string>({
+      query: (userId) => ({ url: `/posts?userId=${userId}`, method: "GET" }),
+      providesTags: [{ type: "Post", id: "LIST" }],
+    }),
     addPost: builder.mutation<iPost, Omit<iPost, "id">>({
       query: (data) => ({ url: "/posts", method: "POST", data }),
       invalidatesTags: [{ type: "Post", id: "LIST" }],
@@ -22,4 +26,8 @@ export const postsApi = createApi({
   }),
 });
 
-export const { useGetPostsQuery, useAddPostMutation } = postsApi;
+export const {
+  useGetPostsQuery,
+  useAddPostMutation,
+  useGetPostsByUserIdQuery,
+} = postsApi;

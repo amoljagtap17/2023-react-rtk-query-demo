@@ -12,6 +12,7 @@ export function PostListItem({ post }: iPostListItemProps) {
 
   return (
     <ListItem
+      divider
       secondaryAction={
         <Button size="small" onClick={() => navigate(`/posts/${id}`)}>
           Read more
