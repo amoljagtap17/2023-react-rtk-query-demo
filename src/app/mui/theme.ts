@@ -12,6 +12,9 @@ export const theme = createTheme({
     primary: {
       main: grey[900],
     },
+    secondary: {
+      main: "#fff",
+    },
   },
   components: {
     MuiButton: {
@@ -25,7 +28,7 @@ export const theme = createTheme({
       styleOverrides: {
         contained: {
           borderRadius: 0,
-          minWidth: "120px",
+          minWidth: "125px",
         },
       },
     },
