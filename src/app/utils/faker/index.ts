@@ -5,10 +5,9 @@ export function getRandomUser(): iUser {
   const sex = faker.name.sexType();
   const firstName = faker.name.firstName(sex);
   const lastName = faker.name.lastName();
-  const email = faker.helpers.unique(faker.internet.email, [
-    firstName,
-    lastName,
-  ]);
+  const email = faker.helpers
+    .unique(faker.internet.email, [firstName, lastName])
+    .toLowerCase();
 
   return {
     id: faker.datatype.uuid(),

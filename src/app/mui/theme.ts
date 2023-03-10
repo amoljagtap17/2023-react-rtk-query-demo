@@ -32,5 +32,17 @@ export const theme = createTheme({
         },
       },
     },
+    MuiCard: {
+      defaultProps: {
+        raised: false,
+      },
+    },
+    MuiPaper: {
+      defaultProps: {
+        elevation: 0,
+        square: true,
+        variant: "outlined",
+      },
+    },
   },
 });

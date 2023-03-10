@@ -5,7 +5,7 @@ export function Footer() {
     <AppBar
       component="footer"
       position="static"
-      sx={{ bottom: 0 }}
+      sx={{ bottom: 0, marginTop: 20 }}
       elevation={0}
     >
       <Container maxWidth="lg">

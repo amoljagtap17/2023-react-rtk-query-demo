@@ -9,12 +9,15 @@ export const usersApi = createApi({
   baseQuery: axiosBaseQuery({
     baseUrl,
   }),
+  tagTypes: ["User"],
   endpoints: (builder) => ({
     getUsers: builder.query<iUser[], void>({
       query: () => ({ url: "/users", method: "GET" }),
+      providesTags: [{ type: "User", id: "LIST" }],
     }),
     addUser: builder.mutation<iUser, Omit<iUser, "id">>({
       query: (data) => ({ url: "/users", method: "POST", data }),
+      invalidatesTags: [{ type: "User", id: "LIST" }],
     }),
   }),
 });
