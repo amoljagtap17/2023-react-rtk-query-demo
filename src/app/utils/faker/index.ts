@@ -25,7 +25,7 @@ export function getRandomPost(userId: string): iPost {
     title: faker.lorem.lines(1),
     slug: faker.lorem.slug(),
     userId,
-    body: faker.lorem.paragraphs(4),
+    body: faker.lorem.paragraphs(6, "<br/><br/>\n"),
     createdAt: new Date(),
   };
 }

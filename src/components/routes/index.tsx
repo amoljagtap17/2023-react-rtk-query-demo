@@ -6,6 +6,7 @@ import {
 import ErrorPage from "./Error";
 import HomePage from "./Home";
 import PostPage from "./Post";
+import PostDetailPage from "./PostDetail";
 import Root from "./Root";
 
 export const router = createBrowserRouter(
@@ -14,6 +15,7 @@ export const router = createBrowserRouter(
       <Route errorElement={<ErrorPage />}>
         <Route index element={<HomePage />} />
         <Route path="posts" element={<PostPage />} />
+        <Route path="posts/:postId" element={<PostDetailPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Route>
